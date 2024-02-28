@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [elapseddTime, setElapseddTime] = useState(0);
+  const [elapseddTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
     let intervalId;
     if (isRunning) {
       intervalId = setInterval(() => {
-        setElapseddTime((prev) => prev + 1);
+        setElapsedTime((prev) => prev + 1);
       }, 1000);
     } else {
       clearInterval(intervalId);
@@ -23,7 +23,7 @@ const App = () => {
   };
 
   const reset = () => {
-    setElapseddTime(0);
+    setElapsedTime(0);
     setIsRunning(false);
   };
 
@@ -34,7 +34,7 @@ const App = () => {
   return (
     <div>
       {" "}
-      <h1> StopWatch </h1> <p> Time: {formatTime(elapseddTime)} </p>{" "}
+      <h1> Stopwatch </h1> <p> Time: {formatTime(elapseddTime)} </p>{" "}
       <button onClick={startStop}> {isRunning ? "Stop" : "Start"} </button>{" "}
       <button onClick={reset}> Reset </button>{" "}
     </div>
